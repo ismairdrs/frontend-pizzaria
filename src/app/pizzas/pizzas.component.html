@@ -1,0 +1,42 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Pizzas</li>
+    </ol>
+  </nav>
+  <div class="container">
+    <div class="pizza list-car">
+      <h5 class="pizza-header">Pizzas</h5>
+      <div class="pizza-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Preco</th>
+                <th scope="col">Descricao</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pizza of pizzas">
+                <td>{{pizza.id}}</td>
+                <td>{{pizza.nome}}</td>
+                <td>{{pizza.codigo}}</td>
+                <td>{{pizza.ingrediente}}</td>
+                <td>{{pizza.preco}}</td>
+                <td>{{pizza.descricao}}</td>
+                <!--
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="editCar(car)">Editar</button>
+                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(car)">Deletar</button>
+                </td>-->
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  
+   
+  </div>

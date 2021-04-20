@@ -1,0 +1,95 @@
+<body class="is-preload">
+        <div id="wrapper">
+                <div id="main">
+                    <div class="inner">
+                            <header id="header">
+                                <a href="{% url 'listar_solicitacoes' %}" class="logo"><strong>Solicitações</strong></a>
+                            </header>
+                        <!-- Banner -->
+                            <section id="banner">
+                                <div class="content">
+
+                                    {% block content %}
+                                    {% endblock %}
+                                </div>
+                            </section>
+                    </div>
+                </div>
+
+            <!-- Sidebar -->
+                <div id="sidebar">
+                    <div class="inner">
+
+
+
+                        <!-- Menu -->
+                            <nav id="menu">
+                                <header class="major">
+                                    <h2>Menu</h2>
+                                </header>
+                                {% if user.is_authenticated %}
+                                    <p>Olá, {{ user.username }}!</p>
+                                {% endif %}
+                                <ul class="safadslinks">
+                                    <li><a href="{% url 'listar_solicitacoes' %}">Listar Solicitações</a></li>
+                                    {% if user.is_authenticated %}
+
+                                    <li><a href="{% url 'nova_solicitacao' %}">Gerar Solicitação</a></li>
+                                    {% if user.is_superuser %}
+                                    <li><a href="{% url 'list_usuarios' %}">Gestão de Usuários</a></li>
+                                    <li><a href="{% url 'user_list' %}">Gestão UserList</a></li>
+                                    {% endif %}
+                                    <li><a href="{% url 'listar_unidades' %}">Listar Unidades</a></li>
+                                    {% if user.is_superuser %}
+                                    <li>
+                                        <span class="opener">Gestão das Unidades</span>
+                                        <ul>
+                                            <li><a href="{% url 'nova_unidade' %}">Cadastrar Unidade</a></li>
+                                            <li><a href="{% url 'novo_setor' %}">Cadastrar Setor</a></li>
+                                            <li><a href="{% url 'novo_leito' %}">Cadastrar Leito</a></li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                    <li><a href="{% url 'password_change' %}">Trocar Senha</a></li>
+                                    <li><a href="{% url 'logout' %}">Sair</a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'login' %}">Entrar</a></li>
+                                    <li><a href="{% url 'signup' %}">Cadastrar</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                    </div>
+                </div>
+
+        </div>
+
+    <!-- Scripts -->
+
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/browser.min.js' %}"></script>
+        <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+        <script src="{% static 'assets/js/util.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+            document.getElementById("add_image").onclick=function(ev){
+                var image=document.getElementById("images");
+                var newInput=document.createElement("input");
+                newInput.type="file";
+                newInput.name="file[]";
+
+                var br=document.createElement("br");
+                var br1=document.createElement("br");
+
+                image.appendChild(newInput);
+                image.appendChild(br);
+                image.appendChild(br1);
+
+            }
+        </script>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' })
   }
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();

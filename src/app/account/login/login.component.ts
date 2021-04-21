@@ -8,7 +8,7 @@ import { AccountService } from '../shared/account.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  Login ={
+  login ={
     username: '',
     password: ''
 
@@ -20,6 +20,18 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+  }
+  async onSubmit() {
+    try {
+      const result = await this.accountService.login(this.login);
+      console.log(`Login efetuado: ${result}`);
+
+      // navego para a rota vazia novamente
+      this.router.navigate(['']);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 }

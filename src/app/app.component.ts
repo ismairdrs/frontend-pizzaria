@@ -17,31 +17,4 @@ export class AppComponent {
 
   constructor(private api: ApiService, private router: Router){}
   
-  usuario_logado = localStorage.getItem('user');
-
-  endereco(){
-    this.router.navigate(['/endereco']);
-  };
-
-  likes(){
-    this.router.navigate(['/like']);
-  }
-
-  usuario(){
-    this.router.navigate(['/usuario']);
-  }
-
-  login(){
-    this.router.navigate(['/login']);
-  }
-
-  logout(){
-    localStorage.clear()
-    this.router.navigate(['/login']);
-    window.location.reload();
-  }
-
-  perfil(){
-    this.router.navigate(['/perfil']);
-  }
 }

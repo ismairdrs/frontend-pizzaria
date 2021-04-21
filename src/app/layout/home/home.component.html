@@ -1,3 +1,4 @@
+  <!--
   <div id="wrapper">
       <div id="main">
       <router-outlet></router-outlet>
@@ -9,7 +10,7 @@
               </ul>
             </header>
 
-          <!-- Banner -->
+          <!-- Banner 
             <section id="banner">
               <div class="content">
                 <router-outlet>
@@ -22,10 +23,10 @@
         </div>
       </div>
 
-    <!-- Sidebar -->
+    <!-- Sidebar 
       <div id="sidebar">
         <div class="inner">
-          <!-- Menu -->
+          <!-- Menu --
             <nav id="menu">
               <header class="major">
                 <h2>Menu</h2>
@@ -38,7 +39,7 @@
               </ul>
             </nav>
           
-          <!-- Footer -->
+          <!-- Footer --
             <footer id="footer">
               <p class="copyright">&copy; PizzaTech © 2021 </p>
             </footer>
@@ -52,3 +53,21 @@
     <script type="text/javascript" src="./assets/js/breakpoints.min.js"></script>
     <script type="text/javascript" src="./assets/js/util.js"></script>
     <script type="text/javascript" src="./assets/js/main.js"></script>
+
+-->
+
+<header>
+  <nav class="navbar fixed-top navbar-dark bg-primary">
+      <a class="navbar-brand" [routerLink]="['/']">Pizzas</a>
+  </nav>
+</header>
+
+<section>
+  <main class="container">
+      <router-outlet></router-outlet>
+  </main>
+</section>
+
+<footer class="mt-2 p-2 text-center">
+  <a href="https://github.com/ismairdrs/frontend-pizzaria">projeto no GitHub</a>
+</footer>

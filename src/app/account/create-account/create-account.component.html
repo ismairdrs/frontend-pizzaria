@@ -1,1 +1,29 @@
-<p>create-account works!</p>
+<h2 class="text-center">Criar minha conta</h2>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="form-group">
+    <label>Primeiro Nome</label>
+    <input class="form-control" type="text" name="first_name" id="first_name" [(ngModel)]="account.first_name" required />
+  </div>
+  <div class="form-group">
+    <label>Ultimo Nome</label>
+    <input class="form-control" type="text" name="flast_name" id="last_name" [(ngModel)]="account.last_name" required />
+  </div>
+  <div class="form-group">
+    <label>Telefone</label>
+    <input class="form-control" type="text" name="flast_name" id="last_name" [(ngModel)]="account.phone_number" required />
+  </div>
+  <div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" type="email" name="email" id="email" [(ngModel)]="account.email" required />
+  </div>
+  <div class="form-group">
+    <label>Usuário</label>
+    <input class="form-control" type="text" name="username" id="username" [(ngModel)]="account.username" required />
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input class="form-control" type="password" name="password" id="password" [(ngModel)]="account.password" required />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block" [disabled]="form.form.invalid">Criar Conta</button>
+</form>

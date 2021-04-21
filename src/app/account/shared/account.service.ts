@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
@@ -10,7 +10,9 @@ import { Injectable } from '@angular/core';
 export class AccountService {
 
   constructor(private http: HttpClient) { }
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();
     if (result && result.access) {
@@ -31,7 +33,7 @@ export class AccountService {
     return token;
   }
 
- /* getTokenExpirationDate(token: string): Date {
+  getTokenExpirationDate(token: string): Date {
     const decoded: any = jwt_decode(token);
 
     if (decoded.exp === undefined) {
@@ -65,8 +67,12 @@ export class AccountService {
     }
 
     return true;
-  }*/
+  }
 }
 
 
+
+function jwt_decode(token: string): any {
+  throw new Error('Function not implemented.');
+}
 

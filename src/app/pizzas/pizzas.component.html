@@ -1,9 +1,11 @@
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item active" aria-current="page">Pizzas</li>
     </ol>
   </nav>
   <div class="container">
+    <router-outlet></router-outlet>
     <div class="pizza list-car">
       <h5 class="pizza-header">Pizzas</h5>
       <div class="pizza-body">
@@ -27,11 +29,11 @@
                 <td>{{pizza.ingrediente}}</td>
                 <td>{{pizza.preco}}</td>
                 <td>{{pizza.descricao}}</td>
-                <!--
+                
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm" (click)="editCar(car)">Editar</button>
-                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(car)">Deletar</button>
-                </td>-->
+                  <button type="button" class="btn btn-warning btn-sm" (click)="editCar(car)">Comprar</button>
+                  <!--<button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(car)">Deletar</button>-->
+                </td>
               </tr>
             </tbody>
           </table>

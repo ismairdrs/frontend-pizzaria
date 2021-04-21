@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://pizzaria-fasam.herokuapp.com'
+  api: ' https://2662134d1fc2.ngrok.io'
 };
 
 /*

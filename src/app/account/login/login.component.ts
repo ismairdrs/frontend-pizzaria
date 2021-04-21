@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
 
-  }
+  };
 
   constructor(
     private accountService: AccountService,
@@ -23,14 +23,16 @@ export class LoginComponent implements OnInit {
 
   }
   async onSubmit() {
+    console.log('User '+this.login.username)
     try {
       const result = await this.accountService.login(this.login);
       console.log(`Login efetuado: ${result}`);
-
+     
       // navego para a rota vazia novamente
       this.router.navigate(['']);
     } catch (error) {
       console.error(error);
+      window.alert('Usuário e/ou senha incorreto(s)');
     }
   }
 

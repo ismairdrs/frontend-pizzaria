@@ -8,12 +8,12 @@ import { AccountService } from '../shared/account.service';
 })
 export class CreateAccountComponent implements OnInit {
   account = {
-    first_name: '',
-    last_name: '',
-    phone_number: '',
-    email: '',
-    username:'',
-    password: '',
+    "first_name": "",
+    "last_name": "",
+    "phone_number": "",
+    "email": "",
+    "username":"",
+    "password": "",
   };
 
   constructor(

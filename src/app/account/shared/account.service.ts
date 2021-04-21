@@ -21,6 +21,7 @@ export class AccountService {
     }
 
     return false;
+    console.log(result);
   }
 
   async createAccount(account: any) {

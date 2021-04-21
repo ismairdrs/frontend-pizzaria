@@ -24,16 +24,16 @@ export class AccountService {
     console.log(result);
   }
 
- /* async createAccount(account: any) {
+  async createAccount(account: any) {
     const result = await this.http.post<any>(`${environment.api}/usuario/`, account).toPromise();
     return result;
-  }*/
+  }
 
-  async createAccount(account: any) {
+  /*async createAccount(account: any) {
     const result = await this.http.post<any>(`https://pizzaria-fasam.herokuapp.com/usuario/`, account).toPromise();
     return result;
     window.alert(result);
-  }
+  }*/
 
 
   getAuthorizationToken() {

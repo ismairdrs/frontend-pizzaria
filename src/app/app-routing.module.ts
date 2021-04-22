@@ -6,6 +6,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PizzasComponent } from './pizzas/pizzas.component';
+import { EnderecoComponent } from './endereco/endereco.component' ;
+import { from } from 'rxjs';
 
 const routes: Routes = [
  
@@ -21,7 +23,8 @@ const routes: Routes = [
   children: [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'create-account', component: CreateAccountComponent }
+    { path: 'create-account', component: CreateAccountComponent },
+    { path: 'endereco', component: EnderecoComponent}
   ]
 },
 { path: '**', redirectTo: '' }

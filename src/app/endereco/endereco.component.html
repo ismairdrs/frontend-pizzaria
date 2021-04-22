@@ -1,1 +1,32 @@
-<p>endereco works!</p>
+<h2 class="text-center">02/02 Endereço</h2>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="form-group">
+    <label>Rua</label>
+    <input class="form-control" type="text" name="rua" id="rua" [(ngModel)]="address.rua" required />
+  </div>
+  <div class="form-group">
+    <label>Complemento</label>
+    <input class="form-control" type="text" name="Complemento" id="Complemento" [(ngModel)]="address.complemento1" required />
+  </div>
+  <div class="form-group">
+    <label>Cep</label>
+    <input class="form-control" type="number" name="cep" id="cep" [(ngModel)]="address.cep" required />
+  </div>
+  <div class="form-group">
+    <label>Ponto de Referencia</label>
+    <input class="form-control" type="text" name="estado" id="estado" [(ngModel)]="address.ponto_referencia" />
+  </div>
+  
+  <div class="form-group">
+    <label>Cidade</label>
+    <input class="form-control" type="text" name="cidade" id="cidade" [(ngModel)]="address.cidade" required />
+  </div>
+  <div class="form-group">
+    <label>Estado</label>
+    <input class="form-control" type="text" name="estado" id="estado" [(ngModel)]="address.estado" required />
+  </div>  
+  
+  
+  <button type="submit" class="btn btn-primary btn-block" [disabled]="form.form.invalid">Adicionar Endereço</button>
+</form>

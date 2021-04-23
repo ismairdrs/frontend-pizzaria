@@ -11,7 +11,8 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import { HomeComponent } from './layout/home/home.component';
 import { PizzasComponent} from './pizzas/pizzas.component';
-import { EnderecoComponent } from './endereco/endereco.component'
+import { EnderecoComponent } from './endereco/endereco.component';
+import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido.component'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { EnderecoComponent } from './endereco/endereco.component'
     AuthenticationComponent,
     HomeComponent,
     PizzasComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    ConfimacaoPedidoComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@
     <router-outlet></router-outlet>
     <div class="pizza list-car">
       
-      <div class="pizza-body">
+      <div class="pizza-body" >
         <table class="table">
             <thead>
               <tr>
@@ -31,7 +31,8 @@
                 <td>{{pizza.descricao}}</td>
                 
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm" (click)="editCar(car)">Comprar</button>
+                 <!-- <button (click)="buyPizza()" type="submit" class="btn btn-primary btn-block">Comprar</button>-->
+                  <button type="button" class="btn btn-primary btn-block" (click)="buyPizza(pizza)">Comprar</button>
                   <!--<button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(car)">Deletar</button>-->
                 </td>
               </tr>

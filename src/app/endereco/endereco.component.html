@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label>Cep</label>
-    <input class="form-control" type="number" name="cep" id="cep" [(ngModel)]="address.cep" required />
+    <input class="form-control" type="text" maxlength="8" name="cep" id="cep" [(ngModel)]="address.cep" required />
   </div>
   <div class="form-group">
     <label>Ponto de Referencia</label>
@@ -24,7 +24,7 @@
   </div>
   <div class="form-group">
     <label>Estado</label>
-    <input class="form-control" type="text" name="estado" id="estado" [(ngModel)]="address.estado" required />
+    <input class="form-control" type="text" maxlength="2" name="estado" id="estado" [(ngModel)]="address.estado" required />
   </div>  
   
   

@@ -17,6 +17,7 @@ export class AccountService {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();
     if (result && result.access) {
       window.localStorage.setItem('access', result.access);
+      window.localStorage.setItem('user',result.user);
       return true;
     }
 
@@ -24,17 +25,13 @@ export class AccountService {
     console.log(result);
   }
 
-  async createAccount(account: any) {
+  async createAccount(account: any) {  
     const result = await this.http.post<any>(`${environment.api}/usuario/`, account).toPromise();
+    if (result && result.id) {      
+      window.localStorage.setItem('user',result.id);
     return result;
+    }
   }
-
-  /*async createAccount(account: any) {
-    const result = await this.http.post<any>(`https://pizzaria-fasam.herokuapp.com/usuario/`, account).toPromise();
-    return result;
-    window.alert(result);
-  }*/
-
 
   getAuthorizationToken() {
     const token = window.localStorage.getItem('access');

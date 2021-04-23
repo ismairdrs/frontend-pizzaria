@@ -7,8 +7,11 @@ import { EnderecoService } from './endereco.service';
   styleUrls: ['./endereco.component.css']
 })
 export class EnderecoComponent implements OnInit {
-  address = {
-    "usuario": "",
+ /* usuario = {
+    "usuario": ""
+  }*/
+  address = { 
+    "usuario": "",   
     "rua": "",
     "complemento1": "",
     "complemento2": "",
@@ -26,13 +29,19 @@ export class EnderecoComponent implements OnInit {
   }
 
   async onSubmit() {
+    const user = window.localStorage.getItem('user');
+    this.address.usuario = user;
     try {
+      
       const result = await this.enderecoService.createAddress(this.address);
-      window.alert('Usuário criado com sucesso');
-
+      window.alert('Endereço adicionado com sucesso');
       console.log(result);
+
     } catch (error) {
       console.error(error);
+      console.log(this.address);
+      
+      //console.log(this.address)
     }
   }
 }

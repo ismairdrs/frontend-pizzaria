@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from '../shared/account.service';
 
 @Component({
@@ -15,9 +16,11 @@ export class CreateAccountComponent implements OnInit {
     "username":"",
     "password": "",
   };
+ 
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +30,7 @@ export class CreateAccountComponent implements OnInit {
     try {
       const result = await this.accountService.createAccount(this.account);
       window.alert('Usuário criado com sucesso');
+      this.router.navigate(['endereco']);
 
       console.log(result);
     } catch (error) {

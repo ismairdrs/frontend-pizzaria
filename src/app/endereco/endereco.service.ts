@@ -15,7 +15,7 @@ export class EnderecoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' })
   }
   async createAddress(address: any) {
-    const result = await this.http.post<any>(`${environment.api}/endereco/`, address).toPromise();
+    const result = await this.http.post<any>(`${environment.api}/endereco`,address).toPromise();
     return result;
   }
   

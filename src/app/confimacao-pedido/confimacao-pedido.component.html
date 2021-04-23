@@ -1,1 +1,39 @@
-<p>confimacao-pedido works!</p>
+<h4>Confirmação de Pedido</h4>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+</div>
+<div class="data-pizza">
+    <p>Pizza</p>
+    <div class="pizza-body" >
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Preco</th>
+                <th scope="col">Descricao</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{pizza.id}}</td>
+                <td>{{pizza.nome}}</td>
+                <td>{{pizza.codigo}}</td>
+                <td>{{pizza.ingrediente}}</td>
+                <td>{{pizza.preco}}</td>
+                <td>{{pizza.descricao}}</td>
+                
+                <td>                
+                  <!--<button type="button" class="btn btn-primary btn-block" (click)="buyPizza(pizza)">Confimar</button>-->
+                  <button type="button" class="btn btn-primary btn-block" >Confimar</button>
+
+                 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+</div>

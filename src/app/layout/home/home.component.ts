@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
   }
 
   logout(){
-    localStorage.removeItem('access');
+    //localStorage.removeItem('access');
+    localStorage.clear()
     this.router.navigate(['login'])
   }
  

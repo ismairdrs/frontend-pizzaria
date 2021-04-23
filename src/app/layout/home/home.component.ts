@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
     
   this.router.navigate(['pizzas'])
   }
+
+  logout(){
+    localStorage.removeItem('access');
+  }
  
 
 }

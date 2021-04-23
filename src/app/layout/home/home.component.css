@@ -1,3 +1,11 @@
 header{
     height: 70px;
 }
+.logout{
+    padding-right: 30px;
+    align-content: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    font-size: 20px;
+}

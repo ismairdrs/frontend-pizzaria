@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EnderecoService } from './endereco.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class EnderecoComponent implements OnInit {
   };
 
   constructor(
-    private enderecoService: EnderecoService
+    private enderecoService: EnderecoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class EnderecoComponent implements OnInit {
       const result = await this.enderecoService.createAddress(this.address);
       window.alert('Endereço adicionado com sucesso');
       console.log(result);
+      this.router.navigate(['login']);
 
     } catch (error) {
       console.error(error);

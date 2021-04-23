@@ -1,8 +1,25 @@
 <header>
-  <nav class="navbar fixed-top navbar-dark bg-primary">
+  <!--<nav class="navbar fixed-top navbar-dark bg-primary">
       <a class="navbar-brand" [routerLink]="['pizzas']">Pizzas</a>
-      <button type="button" class="btn btn-outline-light" (click)="logout()">logout</button>
+      <button type="button" class="btn btn-outline-light" (click)="logout()">Logout</button>
+  </nav>-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PizzaTech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/pizzas">Pizzas</a>
+          <a class="nav-link" [routerLink]="['/pedido']" routerLinkActive="router-link-active"  href="pedido">Pedido</a>
+
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-light" (click)="logout()">Logout</button>
+    </div>
   </nav>
+
 </header>
 
 <section>

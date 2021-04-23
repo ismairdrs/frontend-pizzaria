@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confimacao-pedido',
@@ -15,10 +16,14 @@ export class ConfimacaoPedidoComponent implements OnInit {
     descricao:window.localStorage.getItem('pizza-descricao'),
   };
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
    
+  }
+
+  confirmarPedido(){
+    this.router.navigate(['pedido-endereco'])
   }
 
 }

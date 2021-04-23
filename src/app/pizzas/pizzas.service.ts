@@ -15,7 +15,7 @@ export class PizzasService {
 
     // Headers    
     httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ window.localStorage.getItem('access') })
     }
     // Get all Pizzas
     getPizzas(): Observable<Pizzas[]>{
@@ -25,8 +25,8 @@ export class PizzasService {
         catchError(this.handleError))
     }
     // get Pizzas by Id
-    getPizzaById(id: number): Observable<Pizzas> {
-      return this.httpClient.get<Pizzas>(this.BaseUrl + '/' + id)
+    getPizzaById(id: String): Observable<Pizzas> {
+      return this.httpClient.get<Pizzas>(this.BaseUrl + '/' + id)      
         .pipe(
           retry(2),
           catchError(this.handleError)

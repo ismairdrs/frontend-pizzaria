@@ -1,13 +1,14 @@
 <header>
   <nav class="navbar fixed-top navbar-dark bg-primary">
-      <a class="navbar-brand" [routerLink]="['/']">Pizzas</a>
+      <a class="navbar-brand" [routerLink]="['pizzas']">Pizzas</a>
+      <button type="button" class="btn btn-outline-light" (click)="logout()">logout</button>
   </nav>
 </header>
 
 <section>
   <main class="container">
       <router-outlet></router-outlet>
-      <app-pizzas></app-pizzas>
+   
   </main>
 </section>
 

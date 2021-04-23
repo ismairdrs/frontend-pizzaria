@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PizzasComponent } from './pizzas/pizzas.component';
 import { EnderecoComponent } from './endereco/endereco.component' ;
+import{ConfimacaoPedidoComponent} from './confimacao-pedido/confimacao-pedido.component'
 import { from } from 'rxjs';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   component: HomeComponent, 
   children:[
     {path:'pizzas', component:PizzasComponent},
+    {path:'pedido', component: ConfimacaoPedidoComponent}
   ],canActivate: [AuthGuard]
 },
 {
@@ -24,7 +26,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'create-account', component: CreateAccountComponent },
-    { path: 'endereco', component: EnderecoComponent}
+    { path: 'endereco', component: EnderecoComponent}    
   ]
 },
 { path: '**', redirectTo: '' }

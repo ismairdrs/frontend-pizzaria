@@ -1,0 +1,24 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-confimacao-pedido',
+  templateUrl: './confimacao-pedido.component.html',
+  styleUrls: ['./confimacao-pedido.component.css']
+})
+export class ConfimacaoPedidoComponent implements OnInit {
+  pizza = {
+    id: window.localStorage.getItem('pizza-id'),
+    nome: window.localStorage.getItem('pizza-nome'),
+    codigo: window.localStorage.getItem('pizza-codigo'),
+    ingrediente: window.localStorage.getItem('pizza-ingrediente'),
+    preco: window.localStorage.getItem('pizza-preco'),
+    descricao:window.localStorage.getItem('pizza-descricao'),
+  };
+
+  constructor() { }
+
+  ngOnInit(): void {
+   
+  }
+
+}

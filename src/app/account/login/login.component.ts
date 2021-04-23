@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EnderecoService } from 'src/app/endereco/endereco.service';
 import { AccountService } from '../shared/account.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private accountService: AccountService,
+    private enderecoService: EnderecoService,
     private router: Router
   ) { }
 
@@ -27,7 +29,9 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.accountService.login(this.login);
       console.log(`Login efetuado: ${result}`);
-     
+      const user = window.localStorage.getItem('user');
+      const getEndereco = await this.enderecoService.getAddress(user);
+
       // navego para a rota vazia novamente
       this.router.navigate(['']);
     } catch (error) {

@@ -9,18 +9,9 @@ import {EnderecoService} from '../../endereco/endereco.service'
   styleUrls: ['./endereco.component.css']
 })
 export class EnderecoComponentPedido implements OnInit {
-  /*address = { 
-    "usuario": window.localStorage.getItem('user'),   
-    "rua": "",
-    "complemento1": "",
-    "complemento2": "",
-    "cidade": "",
-    "estado": "",
-    "cep": "",
-    "ponto_referencia": ""
-  };*/
+
   address = {} as Address;
-  addresss!: Address[];
+  addressClient!: Address[];
 
   constructor(
     private enderecoService: EnderecoService,
@@ -28,16 +19,18 @@ export class EnderecoComponentPedido implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //this.getUserAddres();
   }
 
   confirmarEndereco(){
 
   }
-  async getUserAddress(){
-    const result = await this.enderecoService.getAllAddress(this.address.usuario).subscribe((addresss:Address[] ) => {
-      this.addresss = addresss;
-    });
-   };
+   async getUserAddres(){
+     const result = await this.enderecoService.getAddress(this.address.usuario);
+     this.addressClient = result;
+     console.log('addressClient '+this.addressClient);
+
+   }
   
 
 }

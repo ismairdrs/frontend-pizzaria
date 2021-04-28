@@ -10,33 +10,57 @@ import {Address} from './../models/address'
 })
 export class EnderecoService {
 
-  constructor(private http: HttpClient) { }
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' })
+  constructor(private http: HttpClient) { 
   }
+  
+  
+  getToken(){
+  const token = window.localStorage.getItem("access");
+  return token;
+}
+  
+  
+  httpOptions = {   
+    
+    headers: new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*' ,
+    'Authorization': `JWT ${this.getToken()}`
+  }),
+  
+    
+  }
+
   async createAddress(address: any) {
     const result = await this.http.post<any>(`${environment.api}/endereco`,address).toPromise();
     return result;
   }
-  async getAddress(userID: String){
-    //const user = window.localStorage.getItem('user');
-    const result = await this.http.get<any[]>(`${environment.api}/endereco/?usuario=${userID}`).toPromise();  
-   // console.log('Endereço: '+ result[result.length-1].rua);
-   console.log('address: '+ result)
-   if (result) {      
+  async getAddress(userID: String){ 
+   console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',this.getToken());
+
+    const result = await this.http.get<any[]>(
+      `${environment.api}/endereco/?usuario=${userID}`,
+      {headers: this.httpOptions.headers}).toPromise();  
+      
+   console.log('address: '+ result);
+
+  if (result) {      
+     // window.sessionStorage.setItem('address',result);
       window.localStorage.setItem('rua',result[result.length-1].rua);
       window.localStorage.setItem('complemento1',result[result.length-1].complemento1);
       window.localStorage.setItem('cidade',result[result.length-1].cidade);
       window.localStorage.setItem('cep',result[result.length-1].cep);
       window.localStorage.setItem('ponto_referencia',result[result.length-1].ponto_referencia);
-      window.localStorage.setItem('estado',result[result.length-1].estado);
+      window.localStorage.setItem('estado',result[result.length-1].estado);      
     }
     return result;
     
   }
 
   getAllAddress(userID: String): Observable<any[]>{
-    return this.http.get<Address[]>(`${environment.api}/endereco/?usuario=${userID}`)
+    return this.http.get<Address[]>(
+    `${environment.api}/endereco/?usuario=${userID}`,
+    this.httpOptions)
     .pipe(      
       retry(2),
       catchError(this.handleError))

@@ -24,13 +24,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  async onSubmit() {
-    console.log('User '+this.login.username)
+  async onSubmit() {    
     try {
       const result = await this.accountService.login(this.login);
       console.log(`Login efetuado: ${result}`);
       const user = window.localStorage.getItem('user');
-      const getEndereco = await this.enderecoService.getAddress(user);
+      try {
+        const getEndereco = await this.enderecoService.getAddress(user);
+      } catch (error) {
+        window.alert('Erro na busca do endereço');
+      }
 
       // navego para a rota vazia novamente
       this.router.navigate(['']);

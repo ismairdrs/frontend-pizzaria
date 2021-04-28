@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EnderecoService } from '../endereco.service';
 
 
@@ -21,6 +22,7 @@ export class ListComponent implements OnInit {
   }
 
   constructor(
+    private router: Router,
     private enderecoService: EnderecoService) {
       
       this.getUserAddress();  
@@ -35,6 +37,10 @@ export class ListComponent implements OnInit {
     } catch (error) {
       window.alert('Erro na busca do endereço');
     }
+  }
+
+  confirmAddress(){
+    this.router.navigate(['status'])
   }
 
 }

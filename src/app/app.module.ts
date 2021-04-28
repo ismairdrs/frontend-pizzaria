@@ -13,7 +13,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { PizzasComponent} from './pizzas/pizzas.component';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido.component';
-import { ListComponent } from './endereco/list/list.component'
+import { ListComponent } from './endereco/list/list.component';
+import { StatusPedidoComponent } from './status-pedido/status-pedido.component'
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ListComponent } from './endereco/list/list.component'
     PizzasComponent,
     EnderecoComponent,
     ConfimacaoPedidoComponent,
-    ListComponent
+    ListComponent,
+    StatusPedidoComponent
   ],
   imports: [
     BrowserModule,

@@ -9,10 +9,21 @@ import { EnderecoService } from '../endereco.service';
 })
 export class ListComponent implements OnInit {
 
+  address = {
+    usuario: window.localStorage.getItem('user'),  
+        rua: window.localStorage.getItem('rua'),
+        complemento1: window.localStorage.getItem('complemento1'),
+        complemento2: "",
+        cidade: window.localStorage.getItem('cidade'),
+        estado: window.localStorage.getItem('estado'),
+        cep: window.localStorage.getItem('cep'),
+        ponto_referencia: window.localStorage.getItem('ponto_referencia')
+  }
+
   constructor(
-    private enderecoService: EnderecoService,
-  ) {
-    this.getUserAddress();
+    private enderecoService: EnderecoService) {
+      
+      this.getUserAddress();  
    }
 
   ngOnInit(): void {

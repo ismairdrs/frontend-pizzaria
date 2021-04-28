@@ -1,1 +1,40 @@
-<p>list works!</p>
+<h4>Confirme seu Endereço</h4>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+</div>
+
+<div class="data-address">
+    <p>Endereço</p>
+    <div class="pizza-body" >
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Rua</th>
+                <th scope="col">Complemento1</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Cep</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Ponto de Referência</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>                
+                <td>{{address.rua}}</td>
+                <td>{{address.complemento1}}</td>
+                <td>{{address.cidade}}</td>
+                <td>{{address.cep}}</td>
+                <td>{{address.estado}}</td>
+                <td>{{address.ponto_referencia}}</td>
+                
+                <td>                
+                  <!--<button type="button" class="btn btn-primary btn-block" (click)="confirmarPedido()">Confimar</button>            -->    
+
+                 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+</div>

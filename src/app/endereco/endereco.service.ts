@@ -16,6 +16,7 @@ export class EnderecoService {
   
   getToken(){
   const token = window.localStorage.getItem("access");
+  console.log(`JWT ${this.getToken()}`)
   return token;
 }
   
@@ -25,7 +26,7 @@ export class EnderecoService {
     headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*' ,
-    'Authorization': `JWT ${this.getToken()}`
+    'Authorization': `JWT ${window.localStorage.getItem("access")}`
   }),
   
     
@@ -36,7 +37,7 @@ export class EnderecoService {
     return result;
   }
   async getAddress(userID: String){ 
-   console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',this.getToken());
+   console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',window.localStorage.getItem("access"));
 
     const result = await this.http.get<any[]>(
       `${environment.api}/endereco/?usuario=${userID}`,
@@ -56,6 +57,7 @@ export class EnderecoService {
     return result;
     
   }
+  
 
   getAllAddress(userID: String): Observable<any[]>{
     return this.http.get<Address[]>(

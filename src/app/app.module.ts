@@ -12,7 +12,8 @@ import { AuthenticationComponent } from './layout/authentication/authentication.
 import { HomeComponent } from './layout/home/home.component';
 import { PizzasComponent} from './pizzas/pizzas.component';
 import { EnderecoComponent } from './endereco/endereco.component';
-import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido.component'
+import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido.component';
+import { ListComponent } from './endereco/list/list.component'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido
     HomeComponent,
     PizzasComponent,
     EnderecoComponent,
-    ConfimacaoPedidoComponent
+    ConfimacaoPedidoComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

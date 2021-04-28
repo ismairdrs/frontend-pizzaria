@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-confimacao-pedido',
   templateUrl: './confimacao-pedido.component.html',
@@ -17,15 +18,18 @@ export class ConfimacaoPedidoComponent implements OnInit {
     descricao:window.localStorage.getItem('pizza-descricao'),
   };
 
-  constructor( private router: Router) { }
+  constructor( 
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
    
   }
 
-  confirmarPedido(){
+  async confirmarPedido(){
     if(this.pizza.id != null && this.pizza.id != ""){
       this.router.navigate(['pedido-endereco'])
+      
     }else{
       window.alert('Selecione a pizza desejada!');
       this.router.navigate(['pizzas'])

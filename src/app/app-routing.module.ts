@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PizzasComponent } from './pizzas/pizzas.component';
 import { EnderecoComponent } from './endereco/endereco.component' ;
 import{ConfimacaoPedidoComponent} from './confimacao-pedido/confimacao-pedido.component'
-import {EnderecoComponentPedido} from './confimacao-pedido/endereco/endereco.component'
+import {ListComponent} from './endereco/list/list.component'
 import { from } from 'rxjs';
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   children:[
     {path:'pizzas', component:PizzasComponent},
     {path:'pedido', component: ConfimacaoPedidoComponent},
-    {path:'pedido-endereco', component:EnderecoComponentPedido}
+    {path:'pedido-endereco', component:ListComponent}
   ],canActivate: [AuthGuard]
 },
 {

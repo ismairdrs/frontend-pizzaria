@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./status-pedido.component.css']
 })
 export class StatusPedidoComponent implements OnInit {
+  message: String;
 
-  constructor() { }
+
+  constructor() { 
+    this.message = "Pedido recebido"
+  }
 
   ngOnInit(): void {
   }

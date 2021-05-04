@@ -10,7 +10,7 @@ export class StatusPedidoComponent implements OnInit {
 
 
   constructor() { 
-    this.message = "Pedido recebido"
+    this.message = "Pedido saiu para entrega"
   }
 
   ngOnInit(): void {

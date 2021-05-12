@@ -47,12 +47,13 @@ export class EnderecoService {
 
   if (result) {      
      // window.sessionStorage.setItem('address',result);
+     window.localStorage.setItem('endereco_id',result[result.length-1].id);      
       window.localStorage.setItem('rua',result[result.length-1].rua);
       window.localStorage.setItem('complemento1',result[result.length-1].complemento1);
       window.localStorage.setItem('cidade',result[result.length-1].cidade);
       window.localStorage.setItem('cep',result[result.length-1].cep);
       window.localStorage.setItem('ponto_referencia',result[result.length-1].ponto_referencia);
-      window.localStorage.setItem('estado',result[result.length-1].estado);      
+      window.localStorage.setItem('estado',result[result.length-1].estado);   
     }
     return result;
     

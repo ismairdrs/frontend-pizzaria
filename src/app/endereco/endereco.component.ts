@@ -28,6 +28,7 @@ export class EnderecoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
 
   async onSubmit() {

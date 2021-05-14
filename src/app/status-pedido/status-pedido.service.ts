@@ -10,7 +10,7 @@ export class StatusPedidoService {
   constructor(private httpClient: HttpClient) { }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'JWT '+ window.localStorage.getItem('access') })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'JWT '+ window.sessionStorage.getItem('access') })
   }
   
   async createPedido(pedido: any){

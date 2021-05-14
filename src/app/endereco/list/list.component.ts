@@ -11,7 +11,7 @@ import { EnderecoService } from '../endereco.service';
 export class ListComponent implements OnInit {
 
   address = {
-    usuario: window.localStorage.getItem('user'),  
+    usuario: window.sessionStorage.getItem('user'),  
         rua: window.localStorage.getItem('rua'),
         complemento1: window.localStorage.getItem('complemento1'),
         complemento2: "",
@@ -33,7 +33,7 @@ export class ListComponent implements OnInit {
 
   async getUserAddress(){
     try {
-      const getEndereco = await this.enderecoService.getAddress(window.localStorage.getItem('user'));
+      const getEndereco = await this.enderecoService.getAddress(window.sessionStorage.getItem('user'));
     } catch (error) {
       window.alert('Erro na busca do endereço');
     }

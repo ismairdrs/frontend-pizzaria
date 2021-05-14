@@ -15,7 +15,7 @@ export class PizzasService {
 
     // Headers    
     httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ window.localStorage.getItem('access') })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization': 'Bearer '+ window.sessionStorage.getItem('access') })
     }
     // Get all Pizzas
     getPizzas(): Observable<Pizzas[]>{

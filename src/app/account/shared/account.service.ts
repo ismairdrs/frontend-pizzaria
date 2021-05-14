@@ -16,8 +16,8 @@ export class AccountService {
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();
     if (result && result.access) {
-      window.localStorage.setItem('access', result.access);
-      window.localStorage.setItem('user',result.user);
+      window.sessionStorage.setItem('access', result.access);
+      window.sessionStorage.setItem('user',result.user);
       return true;
     }
 
@@ -34,7 +34,9 @@ export class AccountService {
   }
 
   getAuthorizationToken() {
-    const token = window.localStorage.getItem('access');
+    //const token = window.localStorage.getItem('access');
+    const token = window.sessionStorage.getItem('access');
+
     return token;
   }
 

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.accountService.login(this.login);
       console.log(`Login efetuado: ${result}`);
-      const user = window.localStorage.getItem('user');
+      const user = window.sessionStorage.getItem('user');
      /* try {
         const getEndereco = await this.enderecoService.getAddress(user);
       } catch (error) {

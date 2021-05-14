@@ -31,7 +31,7 @@ export class StatusPedidoComponent implements OnInit {
     
   }
   async onsubmit(){
-    const user = window.localStorage.getItem('user');
+    const user = window.sessionStorage.getItem('user');
     this.pedido.usuario_id = user;
 
     const endereco_id = window.localStorage.getItem('endereco_id');

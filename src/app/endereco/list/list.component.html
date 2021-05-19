@@ -42,7 +42,7 @@
                 <td>{{address.ponto_referencia}}</td>
                 
                 <td>                
-                  <button type="button" class="btn btn-primary btn-block" (click)="confirmAddress()">Confimar</button>  
+                  <button type="button" class="btn btn-primary btn-block" [disabled]="!address.rua"(click)="confirmAddress()">Confimar</button>  
 
                  
                 </td>

@@ -28,7 +28,7 @@ export class AccountService {
   async createAccount(account: any) {  
     const result = await this.http.post<any>(`${environment.api}/usuario/`, account).toPromise();
     if (result && result.id) {      
-      window.localStorage.setItem('user',result.id);
+      window.sessionStorage.setItem('user',result.id);
     return result;
     }
   }

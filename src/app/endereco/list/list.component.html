@@ -3,15 +3,26 @@
     <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
 </div>
 
+<!-- <div *ngIf="!address.rua"> carregando endereco</div> -->
+<!-- <div *ngIf="!address.rua; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock> 
+  <div class="looding-bar">
+    <mat-spinner colo="primary" ></mat-spinner>
+    
+  </div>
+  
+</ng-template>
 
-
-<div class="data-address">
+<ng-template #elseBlock>
+ -->
+  <div class="data-address">
     <p>Endereço</p>
     <div class="pizza-body" >
+
         <table class="table">
             <thead>
               <tr>
-                
+
                 <th scope="col">Rua</th>
                 <th scope="col">Complemento1</th>
                 <th scope="col">Cidade</th>
@@ -40,3 +51,8 @@
           </table>
       </div>
 </div>
+<!-- </ng-template> -->
+
+
+
+

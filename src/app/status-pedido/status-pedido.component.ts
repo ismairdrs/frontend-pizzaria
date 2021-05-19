@@ -16,6 +16,8 @@ export class StatusPedidoComponent implements OnInit {
     "pizza_id": ""
   };
 
+  id="";
+
 
   constructor(
     private statusPedidoService: StatusPedidoService,
@@ -30,6 +32,7 @@ export class StatusPedidoComponent implements OnInit {
      this.onsubmit();
     
   }
+ 
   async onsubmit(){
     const user = window.sessionStorage.getItem('user');
     this.pedido.usuario_id = user;
@@ -41,13 +44,25 @@ export class StatusPedidoComponent implements OnInit {
     this.pedido.pizza_id = pizza_id;
 
     try {
-      const result = await this.statusPedidoService.createPedido(this.pedido);
+      const result = await this.statusPedidoService.createPedido(this.pedido).then;
       console.log('pedido criado com sucesso');
-      console.log(result);
-        } catch (error) {
-          console.log(error);      
+/*       const resultadoJson = JSON.stringify(result)
+      console.log(resultadoJson['id']);
+       */
+    
+        const sendInfoWebsocket = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+        console.log('sendInfoWebsocket: ' + sendInfoWebsocket); 
+        
+        const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+        console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
+      
+      
+      
+    } catch (error) {
+      console.log(error);      
     }
-
+    
   }
+  
 
 }

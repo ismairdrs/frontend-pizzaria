@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {Address} from './../models/address'
 
@@ -9,11 +9,13 @@ import {Address} from './../models/address'
   providedIn: 'root'
 })
 export class EnderecoService {
-
+  private _loading = new BehaviorSubject<Boolean>(false);
   constructor(private http: HttpClient) { 
+
   }
   
   
+
   getToken(){
   const token = window.sessionStorage.getItem("access");
   console.log(`JWT ${this.getToken()}`)

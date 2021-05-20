@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusPedidoService } from './status-pedido.service';
+import {} from '../models/status-pedido';
 
 @Component({
   selector: 'app-status-pedido',
@@ -8,13 +9,15 @@ import { StatusPedidoService } from './status-pedido.service';
   styleUrls: ['./status-pedido.component.css']
 })
 export class StatusPedidoComponent implements OnInit {
-  message: String;
-
+  
+  message = 'Seu pedido está em preparação é logo saira para entrega';
   pedido = {
     "usuario_id": "",
     "endereco_id": "",
     "pizza_id": ""
   };
+
+  id="";
 
 
   constructor(
@@ -30,8 +33,9 @@ export class StatusPedidoComponent implements OnInit {
      this.onsubmit();
     
   }
+ 
   async onsubmit(){
-    const user = window.localStorage.getItem('user');
+    const user = window.sessionStorage.getItem('user');
     this.pedido.usuario_id = user;
 
     const endereco_id = window.localStorage.getItem('endereco_id');
@@ -41,13 +45,24 @@ export class StatusPedidoComponent implements OnInit {
     this.pedido.pizza_id = pizza_id;
 
     try {
-      const result = await this.statusPedidoService.createPedido(this.pedido);
+      const result = await this.statusPedidoService.createPedido(this.pedido).then;
       console.log('pedido criado com sucesso');
-      console.log(result);
-        } catch (error) {
-          console.log(error);      
+      const resultadoJson = JSON.stringify(result)
+      console.log(resultadoJson);
+          
+        const sendInfoWebsocket = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+        console.log('sendInfoWebsocket: ' + sendInfoWebsocket); 
+        console.log('1');
+        const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+        console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
+        console.log('2');
+      
+      
+    } catch (error) {
+      console.log(error);      
     }
-
+    
   }
+  
 
 }

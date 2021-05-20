@@ -16,8 +16,8 @@ export class AccountService {
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();
     if (result && result.access) {
-      window.localStorage.setItem('access', result.access);
-      window.localStorage.setItem('user',result.user);
+      window.sessionStorage.setItem('access', result.access);
+      window.sessionStorage.setItem('user',result.user);
       return true;
     }
 
@@ -28,13 +28,15 @@ export class AccountService {
   async createAccount(account: any) {  
     const result = await this.http.post<any>(`${environment.api}/usuario/`, account).toPromise();
     if (result && result.id) {      
-      window.localStorage.setItem('user',result.id);
+      window.sessionStorage.setItem('user',result.id);
     return result;
     }
   }
 
   getAuthorizationToken() {
-    const token = window.localStorage.getItem('access');
+    //const token = window.localStorage.getItem('access');
+    const token = window.sessionStorage.getItem('access');
+
     return token;
   }
 

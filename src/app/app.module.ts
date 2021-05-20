@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+//import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +18,8 @@ import { PizzasComponent} from './pizzas/pizzas.component';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { ConfimacaoPedidoComponent } from './confimacao-pedido/confimacao-pedido.component';
 import { ListComponent } from './endereco/list/list.component';
-import { StatusPedidoComponent } from './status-pedido/status-pedido.component'
+import { StatusPedidoComponent } from './status-pedido/status-pedido.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -28,13 +33,18 @@ import { StatusPedidoComponent } from './status-pedido/status-pedido.component'
     EnderecoComponent,
     ConfimacaoPedidoComponent,
     ListComponent,
-    StatusPedidoComponent
+    StatusPedidoComponent,
   ],
   imports: [
     BrowserModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    //MatProgressBarModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

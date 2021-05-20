@@ -3,17 +3,26 @@
     <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
 </div>
 
-<div class="spinner-border" role="status">
-  <span class="sr-only">Loading...</span>
-</div>
+<!-- <div *ngIf="!address.rua"> carregando endereco</div> -->
+<!-- <div *ngIf="!address.rua; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock> 
+  <div class="looding-bar">
+    <mat-spinner colo="primary" ></mat-spinner>
+    
+  </div>
+  
+</ng-template>
 
-<div class="data-address">
+<ng-template #elseBlock>
+ -->
+  <div class="data-address">
     <p>Endereço</p>
     <div class="pizza-body" >
+
         <table class="table">
             <thead>
               <tr>
-                
+
                 <th scope="col">Rua</th>
                 <th scope="col">Complemento1</th>
                 <th scope="col">Cidade</th>
@@ -33,7 +42,7 @@
                 <td>{{address.ponto_referencia}}</td>
                 
                 <td>                
-                  <button type="button" class="btn btn-primary btn-block" (click)="confirmAddress()">Confimar</button>  
+                  <button type="button" class="btn btn-primary btn-block" [disabled]="!address.rua"(click)="confirmAddress()">Confimar</button>  
 
                  
                 </td>
@@ -42,3 +51,8 @@
           </table>
       </div>
 </div>
+<!-- </ng-template> -->
+
+
+
+

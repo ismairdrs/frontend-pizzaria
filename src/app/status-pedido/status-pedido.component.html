@@ -8,12 +8,16 @@
 </head>
 <body>
   <h4>Status do Pedido</h4>
+  
   <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
   </div>
-  
-  <!-- <img src="https://media.giphy.com/media/cmCHuk53AiTmOwBXlw/giphy.gif" class="rounded mx-auto d-block" alt="..."> -->
   <div class="text-center">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
     <h1 id="app">{{ message }}</h1>
     <img src="https://media.giphy.com/media/cmCHuk53AiTmOwBXlw/giphy.gif" class="rounded" alt="gif entregador">
   </div>
@@ -34,7 +38,7 @@
     channel.bind('my-event', function(data) {
 
       var data = JSON.stringify(data);
-	  console.log(data);
+	  console.log('log pedido'+data);
       document.querySelector('#app').innerText = data;
     });
   </script>

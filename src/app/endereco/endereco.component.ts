@@ -32,7 +32,7 @@ export class EnderecoComponent implements OnInit {
   }
 
   async onSubmit() {
-    const user = window.localStorage.getItem('user');
+    const user = window.sessionStorage.getItem('user');
     this.address.usuario = user;
     try {
       

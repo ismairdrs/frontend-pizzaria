@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {Address} from './../models/address'
 
@@ -9,13 +9,15 @@ import {Address} from './../models/address'
   providedIn: 'root'
 })
 export class EnderecoService {
-
+  private _loading = new BehaviorSubject<Boolean>(false);
   constructor(private http: HttpClient) { 
+
   }
   
   
+
   getToken(){
-  const token = window.localStorage.getItem("access");
+  const token = window.sessionStorage.getItem("access");
   console.log(`JWT ${this.getToken()}`)
   return token;
 }
@@ -26,7 +28,7 @@ export class EnderecoService {
     headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*' ,
-    'Authorization': `JWT ${window.localStorage.getItem("access")}`
+    'Authorization': `JWT ${window.sessionStorage.getItem("access")}`
   }),
   
     
@@ -37,7 +39,7 @@ export class EnderecoService {
     return result;
   }
   async getAddress(userID: String){ 
-   console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',window.localStorage.getItem("access"));
+   console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',window.sessionStorage.getItem("access"));
 
     const result = await this.http.get<any[]>(
       `${environment.api}/endereco/?usuario=${userID}`,

@@ -1,0 +1,9 @@
+.icon{
+    position: fixed;    
+    max-width:40px;
+}
+.image-size{
+    max-width: 300px;
+    width: 300px;
+    height: 300px;
+}

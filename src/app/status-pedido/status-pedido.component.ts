@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusPedidoService } from './status-pedido.service';
 import {} from '../models/status-pedido';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-status-pedido',
@@ -56,6 +57,8 @@ export class StatusPedidoComponent implements OnInit {
         const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
         console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
         console.log('2');
+        /*  */
+        setTimeout(() => { this.router.navigate(['entrega']); }, 9000);
       
       
     } catch (error) {

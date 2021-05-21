@@ -41,7 +41,7 @@ export class EnderecoService {
   async getAddress(userID: String){ 
    console.log(`${environment.api}/endereco/?usuario=${userID}`,'JWT ',window.sessionStorage.getItem("access"));
 
-    const result = await this.http.get<any[]>(
+    const result = await this.http.get<Address[]>(
       `${environment.api}/endereco/?usuario=${userID}`,
       {headers: this.httpOptions.headers}).toPromise();  
       
@@ -62,7 +62,7 @@ export class EnderecoService {
   }
   
 
-  getAllAddress(userID: String): Observable<any[]>{
+  getAllAddress(userID: String): Observable<Address[]>{
     return this.http.get<Address[]>(
     `${environment.api}/endereco/?usuario=${userID}`,
     this.httpOptions)

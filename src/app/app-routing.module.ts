@@ -10,6 +10,7 @@ import { EnderecoComponent } from './endereco/endereco.component' ;
 import{ConfimacaoPedidoComponent} from './confimacao-pedido/confimacao-pedido.component'
 import {ListComponent} from './endereco/list/list.component'
 import{StatusPedidoComponent} from './status-pedido/status-pedido.component'
+import{EntregaPedidoComponent} from './entrega/entrega-pedido/entrega-pedido.component'
 import { from } from 'rxjs';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     {path:'pizzas', component:PizzasComponent},
     {path:'pedido', component: ConfimacaoPedidoComponent},
     {path:'pedido-endereco', component:ListComponent},
-    {path:'status', component: StatusPedidoComponent}
+    {path:'status', component: StatusPedidoComponent},
+    {path:'entrega', component: EntregaPedidoComponent}
   ],canActivate: [AuthGuard]
 },
 {

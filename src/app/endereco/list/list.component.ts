@@ -12,17 +12,6 @@ import {Address} from '../../models/address'
 export class ListComponent implements OnInit {
   address = {} as Address;
   addresss!: Address[];
-/* 
-  address = {
-    usuario: '',
-        rua: '',
-        complemento1: '',
-        complemento2: '',
-        cidade: '',
-        estado: '',
-        cep: '',
-        ponto_referencia:''
-  } */
 
   constructor(
     private router: Router,
@@ -37,15 +26,14 @@ export class ListComponent implements OnInit {
   loading = true;
   async ngOnInit(){
     this.getAddress();
-    //this.getUserAddress();
-    //this.getData();
+  
   
   }
 
   async getUserAddress(){
     try {
       const getEndereco = await this.enderecoService.getAddress(window.sessionStorage.getItem('user'));
-      //sleep(2000);
+
       
      
     } catch (error) {

@@ -33,7 +33,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>                
+              <tr *ngFor="let address of addresss">               
                 <td>{{address.rua}}</td>
                 <td>{{address.complemento1}}</td>
                 <td>{{address.cidade}}</td>

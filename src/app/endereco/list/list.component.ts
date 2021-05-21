@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EnderecoService } from '../endereco.service';
+import {Address} from '../../models/address'
 
 
 @Component({
@@ -9,7 +10,9 @@ import { EnderecoService } from '../endereco.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+  address = {} as Address;
+  addresss!: Address[];
+/* 
   address = {
     usuario: '',
         rua: '',
@@ -19,23 +22,24 @@ export class ListComponent implements OnInit {
         estado: '',
         cep: '',
         ponto_referencia:''
-  }
+  } */
 
   constructor(
     private router: Router,
     private enderecoService: EnderecoService,
     ) {
        
-         
-      this.getUserAddress(); 
+      this.getAddress();
+      //this.getUserAddress(); 
        
      // this.getUserAddress();  
    }
   loading = true;
   async ngOnInit(){
-    this.getData();
-    //sleep(2000); 
-    this.loading = false;
+    this.getAddress();
+    //this.getUserAddress();
+    //this.getData();
+  
   }
 
   async getUserAddress(){
@@ -48,17 +52,22 @@ export class ListComponent implements OnInit {
       window.alert('Erro na busca do endereço');
     }
   }
+
+  getAddress() {
+    this.enderecoService.getAllAddress(window.sessionStorage.getItem('user')).subscribe((addresss: Address[]) => {
+      this.addresss = addresss;
+    });
+   };
   
-  async getData(){
-   
-    this.address.usuario = window.sessionStorage.getItem('user');  
-    this.address.rua = window.localStorage.getItem('rua');
-    this.address.complemento1= window.localStorage.getItem('complemento1');
+/*   async getData(){
+    this.address.usuario = await window.sessionStorage.getItem('user');  
+    this.address.rua = await window.localStorage.getItem('rua');
+    this.address.complemento1= await window.localStorage.getItem('complemento1');
     this.address.complemento2= ""; 
-    this.address.cidade= window.localStorage.getItem('cidade'); 
-    this.address.estado= window.localStorage.getItem('estado'); 
-    this.address. cep= window.localStorage.getItem('cep'); 
-    this.address.ponto_referencia= window.localStorage.getItem('ponto_referencia'); 
+    this.address.cidade= await window.localStorage.getItem('cidade'); 
+    this.address.estado= await window.localStorage.getItem('estado'); 
+    this.address. cep= await window.localStorage.getItem('cep'); 
+    this.address.ponto_referencia= await window.localStorage.getItem('ponto_referencia'); 
 
     /* if(this.address.rua != null && this.address.rua != ""){
       this.router.navigate(['pedido-endereco'])
@@ -67,8 +76,8 @@ export class ListComponent implements OnInit {
 
     }else{
       this.router.navigate(['pedido-endereco'])
-    } */
-  }
+    } *
+  } */
 
   async confirmAddress(){
  

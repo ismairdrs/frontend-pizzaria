@@ -29,13 +29,19 @@ export class StatusPedidoService {
     console.log(data.id)
     return result;
   } */
-  sendInfoWebsocket(id: String): Observable<StatusPedido>{
-    const result = this.httpClient.get<StatusPedido>(`${environment.api}/pedido/websocket/?id=`+id)
+  /* async sendInfoWebsocket(id: String): Observable<StatusPedido>{
+    const result = await this.httpClient.get<StatusPedido>(`${environment.api}/pedido/websocket/?id=`+id).toPromise()
     //console.log(result.subscribe)
-    return result
+    return result.data
     .pipe(
       retry(2),
       catchError(this.handleError))
+  } */
+  async sendInfoWebsocket(id: String): Promise<Observable<StatusPedido>>{
+    const result = await this.httpClient.get<StatusPedido>(`${environment.api}/pedido/websocket/?id=`+id)
+    console.log(result.subscribe)
+    return result;
+    
   }
   handleError(handleError: any): import("rxjs").OperatorFunction<any, any> {
     throw new Error('Method not implemented.');

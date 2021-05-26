@@ -12,6 +12,7 @@ import {ListComponent} from './endereco/list/list.component'
 import{StatusPedidoComponent} from './status-pedido/status-pedido.component'
 import{EntregaPedidoComponent} from './entrega/entrega-pedido/entrega-pedido.component'
 import { from } from 'rxjs';
+import { LikesComponent } from './likes/likes.component';
 
 const routes: Routes = [
  
@@ -22,7 +23,8 @@ const routes: Routes = [
     {path:'pedido', component: ConfimacaoPedidoComponent},
     {path:'pedido-endereco', component:ListComponent},
     {path:'status', component: StatusPedidoComponent},
-    {path:'entrega', component: EntregaPedidoComponent}
+    {path:'entrega', component: EntregaPedidoComponent},
+    {path:'likes', component: LikesComponent}
   ],canActivate: [AuthGuard]
 },
 {

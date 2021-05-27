@@ -57,8 +57,9 @@ export class StatusPedidoComponent implements OnInit {
         const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
         console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
         console.log('2');
-        /*  */
         setTimeout(() => { this.router.navigate(['entrega']); }, 9000);
+      
+         
       
       
     } catch (error) {

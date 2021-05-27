@@ -21,6 +21,7 @@ import { ListComponent } from './endereco/list/list.component';
 import { StatusPedidoComponent } from './status-pedido/status-pedido.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EntregaPedidoComponent } from './entrega/entrega-pedido/entrega-pedido.component';
+import { LikesComponent } from './likes/likes.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { EntregaPedidoComponent } from './entrega/entrega-pedido/entrega-pedido.
     ListComponent,
     StatusPedidoComponent,
     EntregaPedidoComponent,
+    LikesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-entrega-pedido',
   templateUrl: './entrega-pedido.component.html',
@@ -8,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class EntregaPedidoComponent implements OnInit {
   menssage = "Entrega Finalizada"
   
-  constructor() { 
+  
+  constructor(private router: Router) { 
 
   }
 
 
   ngOnInit(): void {
+    setTimeout(() => { this.router.navigate(['likes']); }, 15000);
 
   }
+
 
 }

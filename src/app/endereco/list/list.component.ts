@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EnderecoService } from '../endereco.service';
-import {Address} from '../../models/address'
+import { Address } from '../../models/address'
+
 
 
 @Component({
@@ -16,26 +17,22 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private enderecoService: EnderecoService,
-    ) {
-       
-      this.getAddress();
-      //this.getUserAddress(); 
-       
-     // this.getUserAddress();  
-   }
-  loading = true;
-  async ngOnInit(){
+  ) {
     this.getAddress();
-  
-  
+  }
+  loading = true;
+  async ngOnInit() {
+    this.getAddress();
+
+
   }
 
-  async getUserAddress(){
+  async getUserAddress() {
     try {
       const getEndereco = await this.enderecoService.getAddress(window.sessionStorage.getItem('user'));
 
-      
-     
+
+
     } catch (error) {
       window.alert('Erro na busca do endereço');
     }
@@ -45,32 +42,39 @@ export class ListComponent implements OnInit {
     this.enderecoService.getAllAddress(window.sessionStorage.getItem('user')).subscribe((addresss: Address[]) => {
       this.addresss = addresss;
     });
-   };
-  
-/*   async getData(){
-    this.address.usuario = await window.sessionStorage.getItem('user');  
-    this.address.rua = await window.localStorage.getItem('rua');
-    this.address.complemento1= await window.localStorage.getItem('complemento1');
-    this.address.complemento2= ""; 
-    this.address.cidade= await window.localStorage.getItem('cidade'); 
-    this.address.estado= await window.localStorage.getItem('estado'); 
-    this.address. cep= await window.localStorage.getItem('cep'); 
-    this.address.ponto_referencia= await window.localStorage.getItem('ponto_referencia'); 
+  };
 
-    /* if(this.address.rua != null && this.address.rua != ""){
-      this.router.navigate(['pedido-endereco'])
-      //window.location.reload();
-      
+  setData(adres: Address) {
+    window.localStorage.setItem('endereco_id', adres.id);
+    window.localStorage.setItem('rua', adres.rua);
+    window.localStorage.setItem('complemento1', adres.complemento1);
+    window.localStorage.setItem('cidade', adres.cidade);
+    window.localStorage.setItem('estado', adres.estado);
+    window.localStorage.setItem('cep', adres.cep);
 
-    }else{
-      this.router.navigate(['pedido-endereco'])
-    } *
-  } */
-
-  async confirmAddress(){
- 
-    this.router.navigate(['status'])
   }
+  ruaEndereco: String;
+
+  async confirmAddress() {
+    this.ruaEndereco = window.localStorage.getItem('rua');
+    if (!this.ruaEndereco) {
+      window.alert('Selecione o endereço de entrega')
+    } else {
+      this.router.navigate(['status'])
+    }
+
+  }
+  atualizarAddress() {
+    this.ruaEndereco = window.localStorage.getItem('rua');
+    if (!this.ruaEndereco) {
+      window.alert('Selecione o endereço que deseja Atualizar')
+    } else {
+      window.alert('Função indisponível no momento')
+      this.router.navigate(['status'])
+    }
+
+  }
+
 
 }
 function sleep(milliseconds) {

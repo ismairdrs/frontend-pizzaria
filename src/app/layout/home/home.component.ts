@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   logout(){
     //localStorage.removeItem('access');
     localStorage.clear()
+    sessionStorage.clear()
     this.router.navigate(['login'])
   }
  

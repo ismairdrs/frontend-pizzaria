@@ -1,6 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Singleton } from 'src/app/singletonToken/singleton';
 
 
 
@@ -11,13 +12,18 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
   }
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.api}/token/`, user).toPromise();
     if (result && result.access) {
       window.sessionStorage.setItem('access', result.access);
-      window.sessionStorage.setItem('user',result.user);
+      window.sessionStorage.setItem('user', result.user);
+      
+      const db1 = Singleton.getInstace();
+      db1.add({ token: result.access});
+     
+      
       return true;
     }
 
@@ -25,11 +31,11 @@ export class AccountService {
     console.log(result);
   }
 
-  async createAccount(account: any) {  
+  async createAccount(account: any) {
     const result = await this.http.post<any>(`${environment.api}/usuario/`, account).toPromise();
-    if (result && result.id) {      
-      window.sessionStorage.setItem('user',result.id);
-    return result;
+    if (result && result.id) {
+      window.sessionStorage.setItem('user', result.id);
+      return result;
     }
   }
 

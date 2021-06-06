@@ -66,10 +66,7 @@ export class EnderecoService {
     return this.http.get<Address[]>(
     `${environment.api}/endereco/?usuario=${userID}`,
     this.httpOptions)
-    .pipe(      
-      retry(2),
-      catchError(this.handleError))
-    
+   
   }
   handleError(handleError: any): import("rxjs").OperatorFunction<any[], any> {
     throw new Error('Method not implemented.');

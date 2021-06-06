@@ -21,10 +21,11 @@ export class Singleton {
     remove(index: number): void {
         this.token.splice(index, 1);
     }
-    show(): void {
+    show() {
         for (const tokens of this.token){
             console.log(tokens)
         }
+        return this.token;
     }
 };
 

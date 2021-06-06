@@ -22,7 +22,7 @@ export class AccountService {
       
       const db1 = Singleton.getInstace();
       db1.add({ token: result.access});
-     
+      //window.alert(db1.show())
       
       return true;
     }

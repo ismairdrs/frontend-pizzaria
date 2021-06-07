@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../shared/account.service';
 import { EmailValidatorAdapter } from '../../adapterValidate/validations/email-validator-adater';
-import { EmailValidateProtocol } from '../../adapterValidate/validations/email-validator-protocol';
+import { EmailValidateProtocol, EmailValidatorFnProtocol } from '../../adapterValidate/validations/email-validator-protocol';
 import { EmailValidator } from '@angular/forms';
+import { emailValidatorFnAdapter } from 'src/app/adapterValidate/validations/email-validate-fn-adapter';
 
 
 @Component({
@@ -30,27 +31,29 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
 
-  validaEmail(emailValidator: EmailValidateProtocol, email: string): void {
-    if (emailValidator.isEmail(email)) {
-      console.log('Email válido')
-    } else {
-      console.log('Email inválido')
-    }
-
-  };
-
+  
   
   async onSubmit() {
     try {
       console.log(this.account.email)
-      this.validaEmail(new EmailValidatorAdapter, this.account.email);
+      
+      await this.validaEmailFN(emailValidatorFnAdapter, this.account.email);
       const result = await this.accountService.createAccount(this.account);
       window.alert('Usuário criado com sucesso');
       this.router.navigate(['endereco']);
-
+      
       console.log(result);
     } catch (error) {
       console.error(error);
     }
   }
+
+  validaEmailFN(emailValidator: EmailValidatorFnProtocol, email: string): void {
+    if (emailValidator(email)) {
+      console.log('Email válido')
+    } else {
+      console.log('Email inválido')
+    }
+  
+  };
 }

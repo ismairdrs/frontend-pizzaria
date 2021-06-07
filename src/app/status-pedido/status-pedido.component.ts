@@ -48,9 +48,9 @@ export class StatusPedidoComponent implements OnInit {
 
     try {
       const result = await this.statusPedidoService.createPedido(this.pedido).then;
-     /*  console.log('pedido criado com sucesso'); */
+      console.log('pedido criado com sucesso'); 
      const resultadoJson = JSON.stringify(result)
-     console.log(resultadoJson);
+     //console.log(resultadoJson);
      
      const sendInfoWebsocket = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
      console.log('sendInfoWebsocket: ' + sendInfoWebsocket); 

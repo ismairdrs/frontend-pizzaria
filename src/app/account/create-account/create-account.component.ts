@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../shared/account.service';
+import { EmailValidatorAdapter } from '../../adapterValidate/validations/email-validator-adater';
+import { EmailValidateProtocol } from '../../adapterValidate/validations/email-validator-protocol';
+import { EmailValidator } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-account',
@@ -13,10 +17,10 @@ export class CreateAccountComponent implements OnInit {
     "last_name": "",
     "phone_number": "",
     "email": "",
-    "username":"",
+    "username": "",
     "password": "",
   };
- 
+
 
   constructor(
     private accountService: AccountService,
@@ -26,8 +30,20 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  validaEmail(emailValidator: EmailValidateProtocol, email: string): void {
+    if (emailValidator.isEmail(email)) {
+      console.log('Email válido')
+    } else {
+      console.log('Email inválido')
+    }
+
+  };
+
+  
   async onSubmit() {
     try {
+      console.log(this.account.email)
+      this.validaEmail(new EmailValidatorAdapter, this.account.email);
       const result = await this.accountService.createAccount(this.account);
       window.alert('Usuário criado com sucesso');
       this.router.navigate(['endereco']);

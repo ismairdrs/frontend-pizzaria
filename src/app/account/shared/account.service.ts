@@ -21,8 +21,14 @@ export class AccountService {
       window.sessionStorage.setItem('user', result.user);
       
       const db1 = Singleton.getInstace();
+     
       db1.add({ token: result.access});
-      //window.alert(db1.show())
+      
+      var obj = db1.show();
+     
+      /* 
+        window.alert(obj[Object.keys(obj)[0]])
+       */
       
       return true;
     }

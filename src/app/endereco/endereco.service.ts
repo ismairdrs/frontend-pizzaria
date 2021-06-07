@@ -35,7 +35,7 @@ export class EnderecoService {
   }
 
   async createAddress(address: any) {
-    const result = await this.http.post<any>(`${environment.api}/endereco`,address).toPromise();
+    const result = await this.http.post<any>(`${environment.api}/endereco`,address,{headers: this.httpOptions.headers}).toPromise();
     return result;
   }
   async getAddress(userID: String){ 

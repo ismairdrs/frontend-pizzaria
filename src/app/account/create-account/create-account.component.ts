@@ -20,6 +20,11 @@ export class CreateAccountComponent implements OnInit {
     "username": "",
     "password": "",
   };
+  /* login ={
+    username: this.account.username,
+    password: this.account.password
+
+  }; */
 
 
   constructor(
@@ -39,6 +44,15 @@ export class CreateAccountComponent implements OnInit {
       await this.validaEmailFN(emailValidatorFnAdapter, this.account.email);
       const result = await this.accountService.createAccount(this.account);
       window.alert('Usuário criado com sucesso');
+      const login ={
+        username: this.account.username,
+        password: this.account.password
+    
+      };
+      console.log(login)
+      const result2 = await this.accountService.login(login);
+      console.log(`Login efetuado: ${result2}`);
+      const user = window.sessionStorage.getItem('user');
       this.router.navigate(['endereco']);
       
       console.log(result);

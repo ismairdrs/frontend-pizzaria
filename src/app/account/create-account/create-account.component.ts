@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../shared/account.service';
-import { EmailValidatorAdapter } from '../../adapterValidate/validations/email-validator-adater';
 import { EmailValidateProtocol, EmailValidatorFnProtocol } from '../../adapterValidate/validations/email-validator-protocol';
 import { EmailValidator } from '@angular/forms';
 import { emailValidatorFnAdapter } from 'src/app/adapterValidate/validations/email-validate-fn-adapter';

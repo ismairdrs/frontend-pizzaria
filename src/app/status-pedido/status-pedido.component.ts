@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StatusPedidoService } from './status-pedido.service';
 import {} from '../models/status-pedido';
 import { delay } from 'rxjs/operators';
+import { Order } from '../state/order';
 
 @Component({
   selector: 'app-status-pedido',
@@ -47,18 +48,20 @@ export class StatusPedidoComponent implements OnInit {
 
     try {
       const result = await this.statusPedidoService.createPedido(this.pedido).then;
-      console.log('pedido criado com sucesso');
-      const resultadoJson = JSON.stringify(result)
-      console.log(resultadoJson);
-          
-        const sendInfoWebsocket = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
-        console.log('sendInfoWebsocket: ' + sendInfoWebsocket); 
-        console.log('1');
-        const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
-        console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
-        console.log('2');
-        setTimeout(() => { this.router.navigate(['entrega']); }, 9000);
-      
+     /*  console.log('pedido criado com sucesso'); */
+     const resultadoJson = JSON.stringify(result)
+     console.log(resultadoJson);
+     
+     const sendInfoWebsocket = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+     console.log('sendInfoWebsocket: ' + sendInfoWebsocket); 
+    
+     const sendInfoWebsocket1 = await this.statusPedidoService.sendInfoWebsocket(window.localStorage.getItem('pedido_id'));
+     console.log('sendInfoWebsocket1: ' + sendInfoWebsocket); 
+     
+     setTimeout(() => { this.router.navigate(['entrega']); }, 9000);
+     
+     const order = new Order();
+     order.pedidoCaminho();
          
       
       

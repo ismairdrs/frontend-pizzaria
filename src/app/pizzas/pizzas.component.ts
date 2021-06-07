@@ -3,6 +3,8 @@ import { PizzasService } from './pizzas.service';
 import { Pizzas } from '../models/pizzas';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Order } from '../state/order';
+import { OrderPending } from '../state/order-pending';
 
 @Component({
   selector: 'app-pizzas',
@@ -36,9 +38,13 @@ export class PizzasComponent implements OnInit {
     window.localStorage.setItem('pizza-ingrediente',pizza.ingrediente);
     window.localStorage.setItem('pizza-preco',pizza.preco);
     window.localStorage.setItem('pizza-descricao',pizza.descricao);
-    
+
+    const order = new Order();
+    order.pedidoCriado();
+   /*  order.pedidoCaminho() */
     console.log('IdPizza '+pizza.id)
     this.router.navigate(['pedido']);
+
 
 
     

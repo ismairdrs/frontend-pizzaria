@@ -39,7 +39,7 @@ export class StatusPedidoService {
   } */
   async sendInfoWebsocket(id: String): Promise<Observable<StatusPedido>>{
     const result = await this.httpClient.get<StatusPedido>(`${environment.api}/pedido/websocket/?id=`+id)
-    console.log(result.subscribe)
+   // console.log(result.subscribe)
     return result;
     
   }

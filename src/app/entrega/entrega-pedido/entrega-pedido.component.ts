@@ -20,7 +20,7 @@ export class EntregaPedidoComponent implements OnInit {
   ngOnInit(): void {
     const order =  new Order();
     order.pedidoEntregue();
-    setTimeout(() => { this.router.navigate(['likes']); }, 1000);
+    setTimeout(() => { this.router.navigate(['likes']); }, 5000);
 
   }
 

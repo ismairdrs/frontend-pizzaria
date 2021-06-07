@@ -25,11 +25,25 @@ export class LikesService {
   
     
   }
-  createAvaliacao(likes): Observable<any> {
+   async createAvaliacao(likes: any){
+      const result = await this.http.post<any>(this.baseUrl,likes,
+        { headers: this.httpOptions.headers}).toPromise();
+        return result;
+
+  }
+
+
+/*   createAvaliacao(likes): Observable<any> {
     return this.http.post(
       this.baseUrl,
       likes,
       { headers: this.httpOptions.headers }
-    );
-  };
+    ); */
+   /*  return this.http.post(
+      this.baseUrl,
+      likes,
+      { headers: this.httpOptions.headers }
+    ); */
+
+  //};
 }
